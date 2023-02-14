@@ -1,2 +1,25 @@
 #!/bin/bash
-find . -maxdepth 1 -name "*.html" -newer ../ -exec cp -n {} ../ \;
+
+
+
+# Get the path of the parent directory
+
+parent_dir=$(dirname $(pwd))
+
+
+
+# Copy all HTML files to the parent directory if they are newer
+
+for file in *.html; do
+
+	    if [ ! -e "$parent_dir/$file" ] || [ "$file" -nt "$parent_dir/$file" ]; then
+
+		            cp "$file" "$parent_dir"
+
+			            echo "Copied $file to $parent_dir"
+
+				        fi
+
+				done
+
+
