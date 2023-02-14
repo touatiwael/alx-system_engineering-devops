@@ -1,0 +1,11 @@
+#!/bin/bash
+if [ ! -d "/tmp/u" ]; then
+    mkdir /tmp/u
+fi
+
+for file in [[:upper:]]*; do
+    mv "$file" /tmp/u
+    echo "Moved $file to /tmp/u"
+done
+
+
